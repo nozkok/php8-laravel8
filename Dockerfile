@@ -50,11 +50,10 @@ RUN rm -rf /var/cache/apk/*
 
 RUN chown -R www-data:www-data /var/www
 
-RUN echo "alias t='/var/www/vendor/bin/phpunit'" >> ~/.bashrc
+RUN echo "alias t='pa test'" >> ~/.bashrc
 RUN echo "alias f='t --filter'" >> ~/.bashrc
 RUN echo "alias pa='php artisan'" >> ~/.bashrc
 RUN echo "alias mfs='pa migrate:fresh --seed'" >> ~/.bashrc
-RUN echo "alias fulltest='composer install; pa migrate:fresh-seed-with-data; t;'" >> ~/.bashrc
-RUN echo "alias migratedata='pa migrate;  pa migrate --force --path=database/migrations/data'" >> ~/.bashrc
+RUN echo "alias mfst='mfs; t;'" >> ~/.bashrc
 
 WORKDIR /var/www
