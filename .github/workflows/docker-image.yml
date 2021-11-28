@@ -20,6 +20,7 @@ jobs:
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
+
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag nozkok/php8-laravel8:8.1.0
       
