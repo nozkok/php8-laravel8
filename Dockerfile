@@ -1,4 +1,4 @@
-FROM php:8.1.0-fpm
+FROM php:8.0.13-fpm
 
 MAINTAINER Erkan Ozkok <erkanozkok@gmail.com>
 
