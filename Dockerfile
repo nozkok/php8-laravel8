@@ -35,7 +35,6 @@ RUN docker-php-ext-install \
     opcache \
     calendar \
     fileinfo \
-    tokenizer \
     mbstring
 
 RUN pecl install redis && docker-php-ext-enable redis
@@ -50,9 +49,9 @@ RUN rm -rf /var/cache/apk/*
 
 RUN chown -R www-data:www-data /var/www
 
+RUN echo "alias pa='php artisan'" >> ~/.bashrc
 RUN echo "alias t='pa test'" >> ~/.bashrc
 RUN echo "alias f='t --filter'" >> ~/.bashrc
-RUN echo "alias pa='php artisan'" >> ~/.bashrc
 RUN echo "alias mfs='pa migrate:fresh --seed'" >> ~/.bashrc
 RUN echo "alias mfst='mfs; t;'" >> ~/.bashrc
 
