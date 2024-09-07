@@ -41,7 +41,7 @@ RUN pecl install redis && docker-php-ext-enable redis
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
 
-RUN curl -sL https://deb.nodesource.com/setup_17.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_20.x | bash -
 RUN apt-get install nodejs -y
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
