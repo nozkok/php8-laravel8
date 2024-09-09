@@ -21,6 +21,7 @@ RUN apt-get install -y \
     libreadline-dev \
     libfreetype6-dev \
     g++ \
+    default-mysql-client \
     nano
 
 RUN docker-php-ext-install \
