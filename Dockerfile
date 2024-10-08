@@ -26,7 +26,6 @@ RUN apt-get install -y \
 
 RUN docker-php-ext-install \
     pdo_mysql \
-    gd \
     zip \
     bz2 \
     soap \
@@ -37,6 +36,9 @@ RUN docker-php-ext-install \
     calendar \
     fileinfo \
     mbstring
+
+RUN docker-php-ext-configure gd --enable-gd --prefix=/usr --with-jpeg --with-freetype \
+    && docker-php-ext-install -j$(nproc) gd
 
 RUN pecl install redis && docker-php-ext-enable redis
 
