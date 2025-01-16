@@ -20,6 +20,7 @@ RUN apt-get install -y \
     libmcrypt-dev \
     libreadline-dev \
     libfreetype6-dev \
+    libwebp-dev \
     g++ \
     default-mysql-client \
     nano
@@ -37,7 +38,7 @@ RUN docker-php-ext-install \
     fileinfo \
     mbstring
 
-RUN docker-php-ext-configure gd --enable-gd --prefix=/usr --with-jpeg --with-freetype \
+RUN docker-php-ext-configure gd --enable-gd --prefix=/usr --with-jpeg --with-freetype --with-webp \
     && docker-php-ext-install -j$(nproc) gd
 
 RUN pecl install redis && docker-php-ext-enable redis
